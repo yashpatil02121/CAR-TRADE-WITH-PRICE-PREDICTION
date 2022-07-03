@@ -1,0 +1,127 @@
+<html>
+    <head>
+      <title>
+        CAR DATA
+      </title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    </head>
+    <style>
+      
+      body{
+        font-family: 'Baloo Bhai', cursive;
+        color: white;
+        /* background: url('buynew.jpg') ; */
+        background: black;
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin: 1%;
+        
+    }
+    .container{
+      background-color: rgba(0, 0, 0, 0.5);
+      /* margin: 1%; */
+    }
+    .row{
+      margin: 1%;
+    }
+    h2{
+      text-align:center;
+      filter: drop-shadow(10px 10px 20px red);   
+
+    }
+
+
+    </style>
+    <body>
+      <div class="container">
+        <div class="col-sm-12" style="border:1px solid gray">
+            <h2>Cars for Sale</h2>
+            <div class="row">
+              <div class="col-sm-1" style="color: black; background-color:yellow;padding:10px;">Brand</div>
+              <div class="col-sm-1" style="color: black; background-color:cyan;padding:10px;">Model</div>
+              <div class="col-sm-1" style="color: black; background-color:palegoldenrod;padding:10px;">Year</div>
+              <div class="col-sm-1" style="color: black; background-color:hotpink;padding:10px;">Seats</div>
+              <div class="col-sm-1" style="color: black; background-color:yellow;padding:10px;">Fuel</div>
+              <div class="col-sm-1" style="color: black; background-color:cyan;padding:10px;">Condition</div>
+              <div class="col-sm-1" style="color: black; background-color:palegoldenrod;padding:10px;">RC</div>
+              <div class="col-sm-1" style="color: black; background-color:hotpink;padding:10px;">Insurance</div>
+              <div class="col-sm-1" style="color: black; background-color:yellow;padding:10px;">PUC</div>
+              <div class="col-sm-1" style="color: black; background-color:cyan;padding:10px;">Price</div>
+              <div class="col-sm-1" style="color: black; background-color:palegoldenrod;padding:10px;">Color</div>
+              <div class="col-sm-1" style="color: black; background-color:hotpink;padding:10px;">Whatsapp</div>
+              <!-- <div class="col-sm-1" style="background-color:violet;padding:10px;">Email</div> -->
+      
+            </div>
+            <div id="showCars"></div>
+        </div>
+      </div>
+    </body>
+    <script>
+        showData();
+        function saveData()
+        {
+            let brand, model, year, seats, fuel, condition, rc, insurance, puc, price, color, contact, email;
+    brand=document.getElementById("brand").value;
+    model=document.getElementById("model").value;
+    year=document.getElementById("year").value;
+    seats=document.getElementById("seats").value;
+    fuel=document.getElementById("fuel").value;
+    condition=document.getElementById("condition").value;
+    rc=document.getElementById("rc").value;
+    insurance=document.getElementById("insurance").value;
+    puc=document.getElementById("puc").value;
+    price=document.getElementById("price").value;
+    color=document.getElementById("color").value;
+    contact=document.getElementById("contact").value;
+    email=document.getElementById("email").value;
+    
+        let car_records = new Array();
+        car_records=JSON.parse(localStorage.getItem("cars"))?JSON.parse(localStorage.getItem("cars")):[]
+    
+        if (car_records.some((v)=>{return v.email==email})) {
+            alert("duplicate data");
+        }
+        else{
+            car_records.push({
+            "brand":brand,
+            "model":model,
+            "year":year,
+            "seats":seats,
+            "fuel":fuel,
+            "condition":condition,
+            "rc":rc,
+            "insurance":insurance,
+            "puc":puc,
+            "price":price,
+            "color":color,
+            "contact":contact
+            // "email":email
+
+        })
+        }
+        localStorage.setItem("cars",JSON.stringify(car_records));
+        showData();
+        }
+        
+        function showData(){
+          document.getElementById("showCars").innerHTML="";
+          let car_records = new Array();
+        car_records=JSON.parse(localStorage.getItem("cars"))?JSON.parse(localStorage.getItem("cars")):[]
+    
+        if (car_records) {
+          for (let i = 0; i < car_records.length; i++) {
+            let addDiv=document.createElement('div');
+          addDiv.className="row";
+          addDiv.innerHTML='<div class="col-sm-1" style="padding:10px;">'+car_records[i].brand+'</div><div class="col-sm-1" style="padding:10px;">'+car_records[i].model+'</div><div class="col-sm-1" style="padding:10px;">'+car_records[i].year+'</div><div class="col-sm-1" style="padding:10px;">'+car_records[i].seats+'</div><div class="col-sm-1" style="padding:10px;">'+car_records[i].fuel+'</div><div class="col-sm-1" style="padding:10px;">'+car_records[i].condition+'</div><div class="col-sm-1" style="padding:10px;">'+car_records[i].rc+'</div><div class="col-sm-1" style="padding:10px;">'+car_records[i].insurance+'</div><div class="col-sm-1" style="padding:10px;">'+car_records[i].puc+'</div><div class="col-sm-1" style="padding:10px;">'+car_records[i].price+'</div><div class="col-sm-1" style="padding:10px;">'+car_records[i].color+'</div><div class="col-sm-1" style="padding:10px;">'+car_records[i].contact+'</div>';
+          document.getElementById("showCars").appendChild(addDiv);
+          }
+        }          
+        }
+  
+        </script>
+    </html>
+      

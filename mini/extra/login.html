@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login/sign up</title>
+    <style>
+        body{
+            background: url('login_car.jpg');
+            background-repeat: no-repeat ;
+            background-size: cover;
+        }
+
+        h1{
+            text-align: center;
+            color: aliceblue;
+        }
+        h4{
+            
+            color: aliceblue;
+            margin: 0%;
+            padding: 1%;
+        }
+
+        h3{
+            color: aliceblue;
+            margin-bottom: 1%;
+        }
+        .container{
+            display:block column;
+            padding: 6%;
+            margin: 4%;
+            margin-bottom: 0%;
+            margin-top: 0%;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #button{
+            padding: 5px;
+            margin: 20px;
+            border-radius: 5px;
+            align-items: center;
+        }
+        #button:hover{
+            background-color: rgb(105, 105, 105);
+            color: rgb(255, 255, 255);
+        }
+        .regis{
+            text-align: center;
+            align-items: center;
+            padding: 0% 20% 20% 0%;
+        }
+        #reg{
+            padding: 5px;
+            margin: 20px;
+            border-radius: 5px;
+            padding: 0.5%;
+        }
+        #reg:hover{
+            background-color: rgb(54, 54, 54);
+            color: rgb(255, 255, 255);
+        }
+
+        @media screen and (max-width:600px){
+            body{
+                background-image: none;
+                background-color: black;
+            }
+            .container{
+                text-align: center;
+                align-items: center;
+            display:block column;
+            padding: 0rem;
+            margin: 0rem;
+            align-items: center;
+            justify-content: center;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    
+    <h1>Welcome to Cars Bechoo</h1>
+    <form action="carsbechoo.html" name="myForm" onsubmit="return(Validate());">
+    <div class="container">
+        <div class="login">
+            <h3>Enter your email</h3>
+            <input type="text" id ="n" placeholder="Enter Email" name="uname" required>
+            <h3>Enter password</h3>
+            <input type="password" id ="p" placeholder="Enter Password" name="psw" required>
+        </div>
+
+        <a href="carsbechoo.html">
+            <button id="button" >login</button>
+        </a>
+    </div>
+</form>
+<div class="regis">
+    <marquee behavior="" direction="" width="40%" scrollamount="10"><h4>New to the website? create profile first!</h4></marquee>
+    <h4>click below:</h4>
+        <a href="register.html" >
+            <button id="reg" >register</button>
+        </a>
+</div>
+</body>
+<script type="text/javascript">
+    function Validate(){
+        if (document.myForm.uname.value=="") {
+            alert("Please provide your username");
+            document.myForm.uname.focus()
+            return false
+            }
+        else if (document.myForm.password.value=="") {
+            alert("Please provide your password");
+            document.myForm.password.focus()
+            return false
+        }
+        else{
+            return true
+        }
+    }
+</script>
+</html>
