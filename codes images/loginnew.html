@@ -1,0 +1,161 @@
+<html>
+  <head>
+    <title>
+      Local Storage
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+  <style>
+    body{
+            background: url('login_car.jpg');
+            background-repeat: no-repeat ;
+            background-size: cover;
+    }
+    p{
+      color: aliceblue;
+      font-style: italic;
+      font-size: 320%;
+      text-decoration:underline;
+      filter: drop-shadow(5px 5px 15px red);
+
+    }
+    h2{
+      color: white;
+      filter: drop-shadow(5px 5px 15px cyan);
+      padding: 5%;
+    }
+    label{
+      color: aliceblue;
+    }
+    input{
+      height: 10%;
+      width: 10%;
+    }
+    .form-group {
+    margin-bottom: 60px;
+    width: 30%;
+  }
+  
+  marquee{
+    color: aliceblue;
+    padding: 5% 5% 2% 10%;
+  }
+  .reg{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    display: flex;
+      flex-direction: column;
+      padding: 5% 40% 0% 10%;
+  }
+  .btn:hover{
+      color: aliceblue;
+      background-color: blue;
+      border: 2px solid black;
+    }
+
+  @media screen and (max-width:600px) {
+    p{
+      font-size:large;
+      padding: 2%;
+      filter: drop-shadow(10px 10px 15px red);
+    }
+    h2{
+      font-size: medium;
+    }
+    .form-group{
+      padding: 2%;
+      width: 80%;
+      margin: 5%;
+    }
+    #login{
+      /* padding: 5%; */
+      margin: 0% 0% 0% 10%;
+    }
+    label{
+      font-size: smaller;
+      filter: drop-shadow(10px 10px 15px red);
+    }
+    marquee{
+      width: 100%;
+    }
+    .reg{
+      display: flex;
+      flex-direction: column;
+      padding: 20%;
+    }
+    .btn:hover{
+      color: aliceblue;
+      background-color: blue;
+      border: 2px solid black;
+    }
+
+  }
+
+
+
+
+
+
+  </style>
+  <body>
+  
+  <div class="container">
+    <p>Welcome to CarsBechoo!!!</p>
+    <h2>Login Form</h2>
+    <form id="form" action="#">
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+      </div>
+      <div class="form-group">
+        <label for="pwd">Password:</label>
+        <input type="password" class="form-control" id="psw" placeholder="Enter password" name="psw" required>
+      </div>
+
+      <button type="button" onclick="saveData()" id="login" class="btn btn-default">login</button>
+      <div class="reg">
+      </form>
+        <button onclick="regpage()" type="button" id="register" class="btn btn-default">Register</button>
+        <marquee width="60%" behavior="" direction="">Not a User? Click above to create a Profile</marquee>
+      </div>
+  
+  
+  </body>
+  <script>
+    function saveData()
+    {
+    let email, psw;
+    email=document.getElementById("email").value;
+    psw=document.getElementById("psw").value;
+
+    let user_records = new Array();
+    user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+
+    if (user_records.some((v)=>{return v.email==email && v.psw==psw})) {
+        alert("logging in...");
+        window.location.href="carsbechoo.html"
+    }
+    else{
+        alert("Logging Failed!!!");
+    }
+        
+    }
+
+    function regpage(){
+      window.location.href="registernew.html"
+    }
+
+
+    </script>
+</html>
+
+
+
+
+
+

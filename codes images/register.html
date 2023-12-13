@@ -1,0 +1,170 @@
+<html>
+  <head>
+    <title>
+    Register
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  </head>
+   <style>
+       body{
+           background: url('register.jpg');
+           background-repeat: no-repeat;
+           background-size: cover;
+           margin: 0px;
+       }
+       .heading{
+           color: aliceblue;
+            text-align: center;
+       }
+       .heading:hover{
+           color: grey;
+        }
+       .container{
+            margin:200px 400px;
+            padding: 80hv;
+           height: 800px 800px;
+           color: aliceblue;
+           display: flex column;
+           align-items: center;
+           justify-content: center;
+       }
+       .btn{
+           color: black;
+           text-align: center;
+           margin: 55px;
+       }
+       .btn:hover{
+           background-color: rgb(0, 0, 255);
+           color: yellow;
+       }
+
+       @media screen and (max-width:600px) {
+           body{
+               background-image: none;
+               background-color: black;
+           }
+          
+           .container{
+               
+               display: flex;
+               flex-direction: column;
+               align-items: center;
+               text-align: center;
+               margin: 0px;
+           }
+    
+           
+       }
+
+       
+       </style>
+   
+
+<body>
+    <!-- <form action="#" onsubmit="return(Validate());"> -->
+    <form action="#">
+
+    <div class="heading">
+        <h1>* Register yourself *</h1>
+    </div>
+    <div class="container">
+        
+        <div class="info">
+            <div class="form-group">
+            <label for="name">Name</label><br>
+            <input type="text" id="name" name="name" placeholder="Enter full name" required>
+            </div>
+
+            <div class="form-group">
+            <br><br><label for="contact">Contact Number</label><br>
+            <input type="number" id="contact" name="contact" placeholder="Enter contact number" required>
+            </div>
+            <div class="form-group">
+            <br><br><label for="address">Residensial address</label><br>
+            <input type="text" id="address" name="address" placeholder="Enter your permanent address" required >
+            </div>
+            <div class="form-group">
+            <br><br><label for="email">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="eg. xyz@gmail.com" required>
+            </div>
+            <div class="form-group">
+            <br><br><label for="password">Password</label><br>
+            <input type="password" id="password" name="password" placeholder="Create your Password" required >
+            </div>
+        </div>
+        <button type="button" class="btn" onclick="saveData()" id="save_btn" class="btn btn-default">Submit</button> 
+        
+    </div>
+</form>
+</body>
+<!-- <script type="text/javascript">
+    function Validate(){
+        if (document.myForm.name.value=="") {
+            alert("Please provide your name");
+            document.myForm.name.focus()
+            return false
+            }
+        else if (document.myForm.contact.value=="") {
+            alert("Please provide your contact");
+            document.myForm.contact.focus()
+            return false
+        }
+        else if (document.myForm.em.value=="") {
+            alert("Please provide your email");
+            document.myForm.email.focus()
+            return false
+        }
+        else if (document.myForm.address.value=="") {
+            alert("Please provide your residensial address");
+            document.myForm.address.focus()
+            return false
+        }
+        else if (document.myForm.password.value=="") {
+            alert("Please create a password");
+            document.myForm.password.focus()
+            return false
+        }
+        else{
+            return true
+        }
+    }
+
+    </script> -->
+
+    <script>
+    function saveData()
+    {
+    let name, contact, address, email, password;
+    name=document.getElementsById("name").value;
+    contact=document.getElementsById("contact");
+    address=document.getElementsById("address");
+    email=document.getElementsById("email").value;
+    password=document.getElementsById("password").value;
+
+    let user_records = new Array();
+    user_records=JSON.parse(localStorage.getItem("users"))?JSON.parse(localStorage.getItem("users")):[]
+
+    if (user_records.some((v)=>{return v.email==email})) {
+        alert("duplicate data");
+    }
+    else{
+        user_records.push({
+        "name":name,
+        "contact":contact,
+        "address":address,
+        "email":email,
+        "password":password
+    })
+    }
+    localStorage.setItem("users",JSON.stringify(user_records));
+    
+    }
+    </script>
+       
+</html>
+
+

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>mini project</title>
+</head>
+<link href="https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap" rel="stylesheet">
+<style>
+    body {
+        font-family: 'Baloo Bhai', cursive;
+        color: white;
+        margin: 0px;
+        padding: 0px;
+        background: url('mp5.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+ 
+    #tit{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:all 1s ;
+        font-size: xx-large;
+        filter: drop-shadow(10px 10px 20px rgb(144, 247, 247));
+        
+    }
+    #tit:hover{
+        color: cyan;
+        font-size:350%;
+      filter: drop-shadow(10px 10px 30px white);
+
+    }
+
+    .mid {
+        display: block;
+        width: 36%;
+        margin: 29px auto;
+    }
+    
+    .right {
+        align-items: center;
+        margin: 480px 500px;
+        padding: 80hv;
+        width: 33%;
+        position: absolute;
+        right: 0px;
+        top: 0px;
+        display: inline-block;
+    }
+
+    .navbar {
+        display: inline-block;
+    }
+
+    .navbar li {
+        display: inline-block;
+        font-size: 25px;
+    }
+    
+    .navbar li a {
+        color: white;
+        text-decoration: none;
+        padding: 34px 23px;
+    }
+
+    .navbar li a:hover,
+    .navbar li a.active {
+        text-decoration: underline;
+        color: grey;
+    }
+
+    .btn {
+        font-family: 'Baloo Bhai', cursive;
+        margin: 5px 9px;
+        background-color: rgb(177, 177, 177);
+        color: black;
+        padding: 22px 44px;
+        border: 2px solid grey;
+        border-radius: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    
+    .btn:hover {
+        background-color: rgb(255, 255, 255);
+      filter: drop-shadow(10px 10px 15px gray);
+        text-shadow: 3px 3px 5px grey;
+    }
+      
+    .form-group input {
+        font-family: 'Baloo Bhai', cursive;
+        text-align: center;
+        display: block;
+        width: 508px;
+        padding: 1px;
+        border: 2px solid black;
+        margin: 11px auto;
+        font-size: 25px;
+        border-radius: 8px;
+    }
+ 
+    @media screen and (max-width: 600px) {
+        body{
+            background-image: url("home_mob_bg.jpg");
+            background-repeat: no-repeat;
+            background-size: 300px 600px;
+            background-color: black;
+        }
+
+        .header{
+            display: flex;
+            align-items: center;
+            text-align: center;
+        }
+        .navbar li a {
+        padding: 10px 0px;
+        }
+        .navbar{
+            margin: 0px;
+            padding: 10px;
+            align-items: center;
+            text-align: center;
+        }
+        .btn {
+        margin: 40px;
+        padding: 10px;
+        font-size: 10px;
+       }
+
+  
+        .navbar{
+            height: 60px;
+            display: flex;
+            align-items: center;
+            text-align: center;
+        flex-direction: row;
+        padding: 0px;
+        margin: 30px 10px;
+        
+        }
+        .navbar li{ 
+            margin: 0px;
+            padding: 10px;
+            font-size: 10px;
+            padding: 5px;
+        }
+        .right {
+            display: flex;
+        height: auto;
+        margin: 60%;
+        }
+
+        
+        .mid{
+            display: grid;
+            text-align: center;
+            align-items: center;
+            padding: 0px;
+            margin-left: 15%;
+            margin-top: 5%;
+        }
+
+        li{
+            padding: 0px;
+            margin: 0px;
+            align-items: center;
+            text-align: center;
+            
+        }
+        #tit{
+            height: 10px;
+            font-size: small;
+         
+        }
+        h1{
+            padding: 0px;
+            margin: 0px;
+        }
+
+    }
+  
+</style>
+
+<body>
+    <header class="header">
+
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href="#" class="active">Home</a></li>
+                <li><a href="about_us_mini.html">About Us</a></li>
+                <li><a href="index.html">Price Predictor</a></li>
+                <li><a href="contact_us_mini.html">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div class="right">
+            <button onclick="buyingpage()" class="btn">BUY</button>
+            <button onclick="sellingpage()" class="btn">SELL</button>
+        </div>
+    </header class="info">
+    <div id="tit"><h1><h1><h1><h1>Cars Bechoo!!!</h1></h1></h1></h1></div>
+    
+    <!-- <marquee behavior="" direction="">
+        <footer>This is a website where you can buy and sell your used cars and also get an idea of price of your car in price prediction option</footer>
+    </marquee> -->
+
+</body>
+<script>
+    function sellingpage(){
+        window.location.href="sellnew.html"
+    }
+    function buyingpage(){
+        window.location.href="BUYnew.html"
+    }
+</script>
+</html>
